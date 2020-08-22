@@ -1,3 +1,15 @@
+div.wrap {
+  width: 1200px;
+}
+
+.center {
+  margin: 0 auto;
+}
+
+table {
+  margin: 10px 0px;
+}
+
 .tg  {
   border-collapse:collapse;border-spacing:0;
 }
@@ -10,6 +22,7 @@
   font-size:14px;
   overflow:hidden;
   word-break:normal;
+  min-width: 88px;
 }
 
 .tg th {
@@ -31,11 +44,25 @@
 }
 
 .glyph {
+  min-width: 40px;
+  text-align: center;
   font-weight:400;
   font-style:normal;
-  padding:10px 5px;
+  margin: 2px 2px;
   float: left;
-  width: auto;
-  border-color:black;
-  background: gray;
+  background: #FF9999;
+}
+
+.glyph.selected {
+  background: #99FF99;
+}
+
+.glyph a {
+  display: block;
+  padding: 4px 2px;
+  text-decoration:none;
+}
+
+.inventory_string {
+  margin: 10px 5px;
 }

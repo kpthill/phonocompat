@@ -1,160 +1,199 @@
 <!doctype html>
 
 <html lang="en">
-<head>
-  <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8">
 
-  <title>phonocompat</title>
-  <!-- <meta name="description" content="The HTML5 Herald"> -->
-  <!-- <meta name="author" content="kpthill"> -->
+    <title>phonocompat</title>
+    <!-- <meta name="description" content="The HTML5 Herald"> -->
+    <!-- <meta name="author" content="kpthill"> -->
 
-  <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 
-</head>
+  </head>
 
-<body>
-  <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.5.1.js"
-          integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-          crossorigin="anonymous"></script>
-  <!-- my code -->
-  <script src="phonocompat.js"></script>
+  <body>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+            integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+            crossorigin="anonymous"></script>
+    <!-- React (minify for production later) -->
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <!-- Babel/JSX -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <!-- my code -->
+    <script type="text/babel" src="phonocompat.js"></script>
 
-  <table class="tg">
-    <thead>
-      <tr>
-        <th class="tg-0pky"></th>
-        <th class="tg-0pky">bilabial</th>
-        <th class="tg-0pky">labiodental</th>
-        <th class="tg-0pky">dental</th>
-        <th class="tg-0pky">alveolar</th>
-        <th class="tg-0pky">postalveolar</th>
-        <th class="tg-0pky">retroflex</th>
-        <th class="tg-0pky">palatal</th>
-        <th class="tg-0pky">velar</th>
-        <th class="tg-0pky">uvular</th>
-        <th class="tg-0pky">pharyngeal</th>
-        <th class="tg-0pky">glottal</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="tg-0pky">plosive</td>
-        <td class="tg-0pky">
-          <div class="glyph">p</div>
-          <div class="glyph">b</div>
-        </td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky">t d</td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky">ʈ ɖ<br></td>
-        <td class="tg-0pky"><span class="glyph">c </span>ɟ</td>
-        <td class="tg-0pky">k ɡ</td>
-        <td class="tg-0pky"><span class="glyph">q </span>ɢ</td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"><span class="glyph">ʔ</span></td>
-      </tr>
-      <tr>
-        <td class="tg-0pky">nasal</td>
-        <td class="tg-0pky"><span class="glyph">m</span></td>
-        <td class="tg-0pky"><span class="glyph">ɱ</span></td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"><span class="glyph">n</span></td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"><span class="glyph">ɳ</span></td>
-        <td class="tg-0pky"><span class="glyph">ɲ</span></td>
-        <td class="tg-0pky"><span class="glyph">ŋ</span></td>
-        <td class="tg-0pky"><span class="glyph">ɴ</span></td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
-      </tr>
-      <tr>
-        <td class="tg-0pky">trill</td>
-        <td class="tg-0pky"><span class="glyph">ʙ</span></td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky">r</td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"><span class="glyph">ʀ</span></td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
-      </tr>
-      <tr>
-        <td class="tg-0pky">tap or flap</td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"><span class="glyph">ⱱ</span></td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"><span class="glyph">ɾ</span></td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"><span class="glyph">ɽ</span></td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
-      </tr>
-      <tr>
-        <td class="tg-0pky">fricative</td>
-        <td class="tg-0pky"><span class="glyph">ɸ </span>β</td>
-        <td class="tg-0pky"><span class="glyph">f </span>v</td>
-        <td class="tg-0pky"><span class="glyph">θ </span>ð</td>
-        <td class="tg-0pky">s z</td>
-        <td class="tg-0pky"><span class="glyph">ʃ </span>ʒ</td>
-        <td class="tg-0pky"><span class="glyph">ʂ </span>ʐ</td>
-        <td class="tg-0pky"><span class="glyph">ç </span>ʝ</td>
-        <td class="tg-0pky"><span class="glyph">x </span>ɣ</td>
-        <td class="tg-0pky"><span class="glyph">χ </span>ʁ</td>
-        <td class="tg-0pky"><span class="glyph">ħ </span>ʕ</td>
-        <td class="tg-0pky">h ɦ</td>
-      </tr>
-      <tr>
-        <td class="tg-0pky">lateral fricative</td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"><span class="glyph">ɬ </span>ɮ</td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
-      </tr>
-      <tr>
-        <td class="tg-0pky">approximant</td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"><span class="glyph">ʋ</span></td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"><span class="glyph">ɹ</span></td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"><span class="glyph">ɻ</span></td>
-        <td class="tg-0pky"><span class="glyph">j</span></td>
-        <td class="tg-0pky"><span class="glyph">ɰ</span></td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
-      </tr>
-      <tr>
-        <td class="tg-0pky">lateral approximant</td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"><span class="glyph">l</span></td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"><span class="glyph">ɭ</span></td>
-        <td class="tg-0pky"><span class="glyph">ʎ</span></td>
-        <td class="tg-0pky">ʟ</td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
-      </tr>
-    </tbody>
-  </table>
+    <div class="wrap center">
 
-</body>
+      <table class="tg">
+        <thead>
+          <tr>
+            <th class="tg-0pky"></th>
+            <th class="tg-0pky">bilabial</th>
+            <th class="tg-0pky">labiodental</th>
+            <th class="tg-0pky">dental</th>
+            <th class="tg-0pky">alveolar</th>
+            <th class="tg-0pky">postalveolar</th>
+            <th class="tg-0pky">retroflex</th>
+            <th class="tg-0pky">palatal</th>
+            <th class="tg-0pky">velar</th>
+            <th class="tg-0pky">uvular</th>
+            <th class="tg-0pky">pharyngeal</th>
+            <th class="tg-0pky">glottal</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="tg-0pky">plosive</td>
+            <td class="tg-0pky"> <span class="glyph"><a href="#">p</a></span> <span class="glyph"><a href="#">b</a></span> </td>
+            <td class="tg-0pky"></td>
+            <td class="tg-0pky"></td>
+            <td class="tg-0pky"><span class="glyph"><a href="#">t</a></span> <span class="glyph"><a href="#">d</a></span></td>
+            <td class="tg-0pky"></td>
+            <td class="tg-0pky"><span class="glyph"><a href="#">ʈ</a></span> <span class="glyph"><a href="#">ɖ</a></span><br></td>
+            <td class="tg-0pky"><span class="glyph"><a href="#">c</a></span> <span class="glyph"><a href="#">ɟ</a></span></td>
+            <td class="tg-0pky"><span class="glyph"><a href="#">k</a></span> <span class="glyph"><a href="#">ɡ</a></span></td>
+            <td class="tg-0pky"><span class="glyph"><a href="#">q</a></span> <span class="glyph"><a href="#">ɢ</a></span></td>
+            <td class="tg-0pky"></td>
+            <td class="tg-0pky"><span class="glyph"><a href="#">ʔ</a></span></td>
+          </tr>
+          <tr>
+            <td class="tg-0pky">nasal</td>
+            <td class="tg-0pky"><span class="glyph"><a href="#">m</a></span></td>
+            <td class="tg-0pky"><span class="glyph"><a href="#">ɱ</a></span></td>
+            <td class="tg-0pky"></td>
+            <td class="tg-0pky"><span class="glyph"><a href="#">n</a></span></td>
+            <td class="tg-0pky"></td>
+            <td class="tg-0pky"><span class="glyph"><a href="#">ɳ</a></span></td>
+            <td class="tg-0pky"><span class="glyph"><a href="#">ɲ</a></span></td>
+            <td class="tg-0pky"><span class="glyph"><a href="#">ŋ</a></span></td>
+            <td class="tg-0pky"><span class="glyph"><a href="#">ɴ</a></span></td>
+            <td class="tg-0pky"></td>
+            <td class="tg-0pky"></td>
+          </tr>
+          <tr>
+            <td class="tg-0pky">trill</td>
+            <td class="tg-0pky"><span class="glyph"><a href="#">ʙ</a></span></td>
+            <td class="tg-0pky"></td>
+            <td class="tg-0pky"></td>
+            <td class="tg-0pky"><span class="glyph"><a href="#">r</a></span></td>
+            <td class="tg-0pky"></td>
+            <td class="tg-0pky"></td>
+            <td class="tg-0pky"></td>
+            <td class="tg-0pky"></td>
+            <td class="tg-0pky"><span class="glyph"><a href="#">ʀ</a></span></td>
+            <td class="tg-0pky"></td>
+            <td class="tg-0pky"></td>
+          </tr>
+          <tr>
+            <td class="tg-0pky">tap or flap</td>
+            <td class="tg-0pky"></td>
+            <td class="tg-0pky"><span class="glyph"><a href="#">ⱱ</a></span></td>
+            <td class="tg-0pky"></td>
+            <td class="tg-0pky"><span class="glyph"><a href="#">ɾ</a></span></td>
+            <td class="tg-0pky"></td>
+            <td class="tg-0pky"><span class="glyph"><a href="#">ɽ</a></span></td>
+            <td class="tg-0pky"></td>
+            <td class="tg-0pky"></td>
+            <td class="tg-0pky"></td>
+            <td class="tg-0pky"></td>
+            <td class="tg-0pky"></td>
+          </tr>
+          <tr>
+            <td class="tg-0pky">fricative</td>
+            <td class="tg-0pky"><span class="glyph"><a href="#">ɸ</a></span> <span class="glyph"><a href="#">β</a></span></td>
+            <td class="tg-0pky"><span class="glyph"><a href="#">f</a></span> <span class="glyph"><a href="#">v</a></span></td>
+            <td class="tg-0pky"><span class="glyph"><a href="#">θ</a></span> <span class="glyph"><a href="#">ð</a></span></td>
+            <td class="tg-0pky"><span class="glyph"><a href="#">s</a></span> <span class="glyph"><a href="#">z</a></span></td>
+            <td class="tg-0pky"><span class="glyph"><a href="#">ʃ</a></span> <span class="glyph"><a href="#">ʒ</a></span></td>
+            <td class="tg-0pky"><span class="glyph"><a href="#">ʂ</a></span> <span class="glyph"><a href="#">ʐ</a></span></td>
+            <td class="tg-0pky"><span class="glyph"><a href="#">ç</a></span> <span class="glyph"><a href="#">ʝ</a></span></td>
+            <td class="tg-0pky"><span class="glyph"><a href="#">x</a></span> <span class="glyph"><a href="#">ɣ</a></span></td>
+            <td class="tg-0pky"><span class="glyph"><a href="#">χ</a></span> <span class="glyph"><a href="#">ʁ</a></span></td>
+            <td class="tg-0pky"><span class="glyph"><a href="#">ħ</a></span> <span class="glyph"><a href="#">ʕ</a></span></td>
+            <td class="tg-0pky"><span class="glyph"><a href="#">h</a></span> <span class="glyph"><a href="#">ɦ</a></span></td>
+          </tr>
+          <tr>
+            <td class="tg-0pky">lateral fricative</td>
+            <td class="tg-0pky"></td>
+            <td class="tg-0pky"></td>
+            <td class="tg-0pky"></td>
+            <td class="tg-0pky"><span class="glyph"><a href="#">ɬ</a></span> <span class="glyph"><a href="#">ɮ</a></span></td>
+            <td class="tg-0pky"></td>
+            <td class="tg-0pky"></td>
+            <td class="tg-0pky"></td>
+            <td class="tg-0pky"></td>
+            <td class="tg-0pky"></td>
+            <td class="tg-0pky"></td>
+            <td class="tg-0pky"></td>
+          </tr>
+          <tr>
+            <td class="tg-0pky">approximant</td>
+            <td class="tg-0pky"></td>
+            <td class="tg-0pky"><span class="glyph"><a href="#">ʋ</a></span></td>
+            <td class="tg-0pky"></td>
+            <td class="tg-0pky"><span class="glyph"><a href="#">ɹ</a></span></td>
+            <td class="tg-0pky"></td>
+            <td class="tg-0pky"><span class="glyph"><a href="#">ɻ</a></span></td>
+            <td class="tg-0pky"><span class="glyph"><a href="#">j</a></span></td>
+            <td class="tg-0pky"><span class="glyph"><a href="#">ɰ</a></span></td>
+            <td class="tg-0pky"></td>
+            <td class="tg-0pky"></td>
+            <td class="tg-0pky"></td>
+          </tr>
+          <tr>
+            <td class="tg-0pky">lateral approximant</td>
+            <td class="tg-0pky"></td>
+            <td class="tg-0pky"></td>
+            <td class="tg-0pky"></td>
+            <td class="tg-0pky"><span class="glyph"><a href="#">l</a></span></td>
+            <td class="tg-0pky"></td>
+            <td class="tg-0pky"><span class="glyph"><a href="#">ɭ</a></span></td>
+            <td class="tg-0pky"><span class="glyph"><a href="#">ʎ</a></span></td>
+            <td class="tg-0pky"><span class="glyph"><a href="#">ʟ</a></span></td>
+            <td class="tg-0pky"></td>
+            <td class="tg-0pky"></td>
+            <td class="tg-0pky"></td>
+          </tr>
+        </tbody>
+      </table>
+
+      Click on the phonemes in the table above, or type in your consonant inventory as a string of IPA symbols below:
+
+      <form>
+        Consonant inventory:
+        <input class="inventory_string" type="text"/>
+      </form>
+
+      <a href="#" id="english">English</a>
+
+      <table >
+        <tbody>
+          <tr>
+            <th class="tg-0pky">Language Name</th>
+            <th class="tg-0pky">Language Code</th>
+            <th class="tg-0pky">Speakers (MM)</th>
+            <th class="tg-0pky">Rank</th>
+            <th class="tg-0pky">Consonants</th>
+            <th class="tg-0pky">Missing Consonants</th>
+            <th class="tg-0pky">Extra Consonants</th>
+          </tr>
+
+          <tr>
+            <td class="tg-0pky">English</td>
+            <td class="tg-0pky">eng</td>
+            <td class="tg-0pky">1,268</td>
+            <td class="tg-0pky">1</td>
+            <td class="tg-0pky">pbtdkɡmnŋfvθðszʃʒhɹlj</td>
+            <td class="tg-0pky"></td>
+            <td class="tg-0pky"></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div id="languages_table_container" />
+    </div>
+  </body>
 </html>
