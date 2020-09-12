@@ -11,36 +11,36 @@ MILLION = 1000 * 1000
 # subgroupings).
 
 most_spoken_langs = [
-    { "rank":  1, "name": "English"                                   , "code": "eng" , "speakers": 1.268 * BILLION },
-    { "rank":  2, "name": "Mandarin Chinese (incl. Standard Chinese)" , "code": "cmn" , "speakers": 1.120 * BILLION },
-    { "rank":  3, "name": "Hindi"                                     , "code": "hin" , "speakers": 637.3 * MILLION },
-    { "rank":  4, "name": "Spanish"                                   , "code": "spa" , "speakers": 537.9 * MILLION },
-    { "rank":  5, "name": "French"                                    , "code": "fra" , "speakers": 276.6 * MILLION },
-    { "rank":  6, "name": "Standard Arabic"                           , "code": "arb" , "speakers": 274.0 * MILLION },
-    { "rank":  7, "name": "Bengali"                                   , "code": "ben" , "speakers": 265.2 * MILLION },
-    { "rank":  8, "name": "Russian"                                   , "code": "rus" , "speakers": 258.0 * MILLION },
-    { "rank":  9, "name": "Portuguese"                                , "code": "por" , "speakers": 252.2 * MILLION },
-    { "rank": 10, "name": "Indonesian"                                , "code": "ind" , "speakers": 199.0 * MILLION },
-    { "rank": 11, "name": "Urdu"                                      , "code": "urd" , "speakers": 170.6 * MILLION },
-    { "rank": 12, "name": "German"                                    , "code": "deu" , "speakers": 131.6 * MILLION },
-    { "rank": 13, "name": "Japanese"                                  , "code": "jpn" , "speakers": 126.4 * MILLION },
-    { "rank": 14, "name": "Swahili"                                   , "code": "swh" , "speakers":  98.5 * MILLION },
-    { "rank": 15, "name": "Marathi"                                   , "code": "mar" , "speakers":  95.3 * MILLION },
-    { "rank": 16, "name": "Telugu"                                    , "code": "tel" , "speakers":  93.0 * MILLION },
-    { "rank": 17, "name": "Turkish"                                   , "code": "tur" , "speakers":  85.2 * MILLION },
-    { "rank": 18, "name": "Yue Chinese (incl. Cantonese)"             , "code": "yue" , "speakers":  84.9 * MILLION },
-    { "rank": 19, "name": "Tamil"                                     , "code": "tam" , "speakers":  83.8 * MILLION },
-    { "rank": 20, "name": "Western Punjabi (Lahnda)"                  , "code": "lah" , "speakers":  82.8 * MILLION },
-    { "rank": 21, "name": "Wu Chinese (incl. Shanghainese)"           , "code": "wuu" , "speakers":  81.8 * MILLION },
-    { "rank": 22, "name": "Korean"                                    , "code": "kor" , "speakers":  79.4 * MILLION },
-    { "rank": 23, "name": "Vietnamese"                                , "code": "vie" , "speakers":  77.0 * MILLION },
-    { "rank": 24, "name": "Hausa"                                     , "code": "hau" , "speakers":  72.7 * MILLION },
-    { "rank": 25, "name": "Javanese"                                  , "code": "jav" , "speakers":  68.3 * MILLION },
-    { "rank": 26, "name": "Egyptian Arabic"                           , "code": "arz" , "speakers":  67.8 * MILLION },
-    { "rank": 27, "name": "Italian"                                   , "code": "ita" , "speakers":  67.7 * MILLION },
-    { "rank": 28, "name": "Thai"                                      , "code": "tha" , "speakers":  60.7 * MILLION },
-    { "rank": 29, "name": "Gujarati"                                  , "code": "guj" , "speakers":  60.7 * MILLION },
-    { "rank": 30, "name": "Kannada"                                   , "code": "kan" , "speakers":  56.5 * MILLION },
+    { "rank":  1, "name": "English"                                   , "iso_code": "eng" , "speakers": 1.268 * BILLION },
+    { "rank":  2, "name": "Mandarin Chinese (incl. Standard Chinese)" , "iso_code": "cmn" , "speakers": 1.120 * BILLION },
+    { "rank":  3, "name": "Hindi"                                     , "iso_code": "hin" , "speakers": 637.3 * MILLION },
+    { "rank":  4, "name": "Spanish"                                   , "iso_code": "spa" , "speakers": 537.9 * MILLION },
+    { "rank":  5, "name": "French"                                    , "iso_code": "fra" , "speakers": 276.6 * MILLION },
+    { "rank":  6, "name": "Standard Arabic"                           , "iso_code": "arb" , "speakers": 274.0 * MILLION },
+    { "rank":  7, "name": "Bengali"                                   , "iso_code": "ben" , "speakers": 265.2 * MILLION },
+    { "rank":  8, "name": "Russian"                                   , "iso_code": "rus" , "speakers": 258.0 * MILLION },
+    { "rank":  9, "name": "Portuguese"                                , "iso_code": "por" , "speakers": 252.2 * MILLION },
+    { "rank": 10, "name": "Indonesian"                                , "iso_code": "ind" , "speakers": 199.0 * MILLION },
+    { "rank": 11, "name": "Urdu"                                      , "iso_code": "urd" , "speakers": 170.6 * MILLION },
+    { "rank": 12, "name": "German"                                    , "iso_code": "deu" , "speakers": 131.6 * MILLION },
+    { "rank": 13, "name": "Japanese"                                  , "iso_code": "jpn" , "speakers": 126.4 * MILLION },
+    { "rank": 14, "name": "Swahili"                                   , "iso_code": "swh" , "speakers":  98.5 * MILLION },
+    { "rank": 15, "name": "Marathi"                                   , "iso_code": "mar" , "speakers":  95.3 * MILLION },
+    { "rank": 16, "name": "Telugu"                                    , "iso_code": "tel" , "speakers":  93.0 * MILLION },
+    { "rank": 17, "name": "Turkish"                                   , "iso_code": "tur" , "speakers":  85.2 * MILLION },
+    { "rank": 18, "name": "Yue Chinese (incl. Cantonese)"             , "iso_code": "yue" , "speakers":  84.9 * MILLION },
+    { "rank": 19, "name": "Tamil"                                     , "iso_code": "tam" , "speakers":  83.8 * MILLION },
+    { "rank": 20, "name": "Western Punjabi (Lahnda)"                  , "iso_code": "lah" , "speakers":  82.8 * MILLION },
+    { "rank": 21, "name": "Wu Chinese (incl. Shanghainese)"           , "iso_code": "wuu" , "speakers":  81.8 * MILLION },
+    { "rank": 22, "name": "Korean"                                    , "iso_code": "kor" , "speakers":  79.4 * MILLION },
+    { "rank": 23, "name": "Vietnamese"                                , "iso_code": "vie" , "speakers":  77.0 * MILLION },
+    { "rank": 24, "name": "Hausa"                                     , "iso_code": "hau" , "speakers":  72.7 * MILLION },
+    { "rank": 25, "name": "Javanese"                                  , "iso_code": "jav" , "speakers":  68.3 * MILLION },
+    { "rank": 26, "name": "Egyptian Arabic"                           , "iso_code": "arz" , "speakers":  67.8 * MILLION },
+    { "rank": 27, "name": "Italian"                                   , "iso_code": "ita" , "speakers":  67.7 * MILLION },
+    { "rank": 28, "name": "Thai"                                      , "iso_code": "tha" , "speakers":  60.7 * MILLION },
+    { "rank": 29, "name": "Gujarati"                                  , "iso_code": "guj" , "speakers":  60.7 * MILLION },
+    { "rank": 30, "name": "Kannada"                                   , "iso_code": "kan" , "speakers":  56.5 * MILLION },
 ]
 
 weird_chars = {
@@ -100,7 +100,9 @@ def import_phoible(phoible_file_loc, langs_to_keep):
     return res
 
 def cleanup_lang(data):
-    assert(len(data) >= 1)
+    if (len(data) == 0):
+        return {"phonemes": {}}
+
     assert(len(data[0]) >= 10)
 
     res = {}
@@ -146,15 +148,13 @@ def unmatched_phonemes(phoneme_set, lang):
 def clean_langs(data, lang_list):
     res = {}
     for lang in lang_list:
-        lang_code = lang["code"]
-        if len(data[lang_code]) == 0:
-            continue
+        lang_code = lang["iso_code"]
         # merge dicts for result
         res[lang_code] = {**cleanup_lang(data[lang_code]), **lang}
     return res
 
 def __main__():
-    most_spoken_lang_codes = [lang["code"] for lang in most_spoken_langs]
+    most_spoken_lang_codes = [lang["iso_code"] for lang in most_spoken_langs]
     print("seeking languages:")
     print(most_spoken_lang_codes)
 
