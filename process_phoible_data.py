@@ -1,7 +1,47 @@
 from collections import defaultdict
 import json
 
-most_spoken_lang_codes = ["cmn", "spa", "eng", "hin", "arb", "por", "ben", "rus", "jpn", "pan", "deu", "jav", "wuu", "ind", "zsm", "tel", "vie", "kor", "fra", "mar", "tam"]
+# most_spoken_lang_codes = ["cmn", "spa", "eng", "hin", "arb", "por", "ben", "rus", "jpn", "pan", "deu", "jav", "wuu", "ind", "zsm", "tel", "vie", "kor", "fra", "mar", "tam"]
+
+BILLION = 1000 * 1000 * 1000
+MILLION = 1000 * 1000
+
+# NOTES: "Lahnda" / "Western Punjabi", rank 20 on the wikipedia list with 82.8 million speakers, was
+# left off because Phoible doesn't have an entry for it (only for some smaller language
+# subgroupings).
+
+most_spoken_langs = [
+    { "rank":  1, "name": "English"                                   , "code": "eng" , "speakers": 1.268 * BILLION },
+    { "rank":  2, "name": "Mandarin Chinese (incl. Standard Chinese)" , "code": "cmn" , "speakers": 1.120 * BILLION },
+    { "rank":  3, "name": "Hindi"                                     , "code": "hin" , "speakers": 637.3 * MILLION },
+    { "rank":  4, "name": "Spanish"                                   , "code": "spa" , "speakers": 537.9 * MILLION },
+    { "rank":  5, "name": "French"                                    , "code": "fra" , "speakers": 276.6 * MILLION },
+    { "rank":  6, "name": "Standard Arabic"                           , "code": "arb" , "speakers": 274.0 * MILLION },
+    { "rank":  7, "name": "Bengali"                                   , "code": "ben" , "speakers": 265.2 * MILLION },
+    { "rank":  8, "name": "Russian"                                   , "code": "rus" , "speakers": 258.0 * MILLION },
+    { "rank":  9, "name": "Portuguese"                                , "code": "por" , "speakers": 252.2 * MILLION },
+    { "rank": 10, "name": "Indonesian"                                , "code": "ind" , "speakers": 199.0 * MILLION },
+    { "rank": 11, "name": "Urdu"                                      , "code": "urd" , "speakers": 170.6 * MILLION },
+    { "rank": 12, "name": "German"                                    , "code": "deu" , "speakers": 131.6 * MILLION },
+    { "rank": 13, "name": "Japanese"                                  , "code": "jpn" , "speakers": 126.4 * MILLION },
+    { "rank": 14, "name": "Swahili"                                   , "code": "swh" , "speakers":  98.5 * MILLION },
+    { "rank": 15, "name": "Marathi"                                   , "code": "mar" , "speakers":  95.3 * MILLION },
+    { "rank": 16, "name": "Telugu"                                    , "code": "tel" , "speakers":  93.0 * MILLION },
+    { "rank": 17, "name": "Turkish"                                   , "code": "tur" , "speakers":  85.2 * MILLION },
+    { "rank": 18, "name": "Yue Chinese (incl. Cantonese)"             , "code": "yue" , "speakers":  84.9 * MILLION },
+    { "rank": 19, "name": "Tamil"                                     , "code": "tam" , "speakers":  83.8 * MILLION },
+    { "rank": 20, "name": "Western Punjabi (Lahnda)"                  , "code": "lah" , "speakers":  82.8 * MILLION },
+    { "rank": 21, "name": "Wu Chinese (incl. Shanghainese)"           , "code": "wuu" , "speakers":  81.8 * MILLION },
+    { "rank": 22, "name": "Korean"                                    , "code": "kor" , "speakers":  79.4 * MILLION },
+    { "rank": 23, "name": "Vietnamese"                                , "code": "vie" , "speakers":  77.0 * MILLION },
+    { "rank": 24, "name": "Hausa"                                     , "code": "hau" , "speakers":  72.7 * MILLION },
+    { "rank": 25, "name": "Javanese"                                  , "code": "jav" , "speakers":  68.3 * MILLION },
+    { "rank": 26, "name": "Egyptian Arabic"                           , "code": "arz" , "speakers":  67.8 * MILLION },
+    { "rank": 27, "name": "Italian"                                   , "code": "ita" , "speakers":  67.7 * MILLION },
+    { "rank": 28, "name": "Thai"                                      , "code": "tha" , "speakers":  60.7 * MILLION },
+    { "rank": 29, "name": "Gujarati"                                  , "code": "guj" , "speakers":  60.7 * MILLION },
+    { "rank": 30, "name": "Kannada"                                   , "code": "kan" , "speakers":  56.5 * MILLION },
+]
 
 weird_chars = {
     "g": "\u0261", # LATIN SMALL LETTER SCRIPT G
@@ -10,6 +50,33 @@ weird_chars = {
     "'": "\u02BC", # MODIFIER LETTER APOSTROPHE
     ":": "\u02D0", # MODIFIER LETTER TRIANGULAR COLON
 }
+
+all_base_ipa_symbols = [
+    'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o',
+    'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'ɑ', 'ɐ', 'ɒ', 'æ',
+    'ɓ', 'ʙ', 'β', 'ɔ', 'ɕ', 'ç', 'ɗ', 'ɖ', 'ð', 'ʤ', 'ə', 'ɘ', 'ɚ', 'ɛ', 'ɜ',
+    'ɝ', 'ɞ', 'ɟ', 'ʄ', 'ɡ', 'ɠ', 'ɢ', 'ʛ', 'ɦ', 'ɧ', 'ħ', 'ɥ', 'ʜ', 'ɨ', 'ɪ',
+    'ʝ', 'ɭ', 'ɬ', 'ɫ', 'ɮ', 'ʟ', 'ɱ', 'ɯ', 'ɰ', 'ŋ', 'ɳ', 'ɲ', 'ɴ', 'ø', 'ɵ',
+    'ɸ', 'θ', 'œ', 'ɶ', 'ʘ', 'ɹ', 'ɺ', 'ɾ', 'ɻ', 'ʀ', 'ʁ', 'ɽ', 'ʂ', 'ʃ', 'ʈ',
+    'ʧ', 'ʉ', 'ʊ', 'ʋ', 'ⱱ', 'ʌ', 'ɣ', 'ɤ', 'ʍ', 'χ', 'ʎ', 'ʏ', 'ʑ', 'ʐ', 'ʒ',
+    'ʔ', 'ʡ', 'ʕ', 'ʢ', 'ǀ', 'ǁ', 'ǂ', 'ǃ',
+]
+
+def normalize_consonant(consonant):
+    "Toss all diacritics, return None if it's an affricate"
+    res = ""
+    for c in consonant:
+        if c in ['\u0660', '\u0665']:
+            return None
+        if c in all_base_ipa_symbols:
+            res += c
+
+    if len(res) is not 1:
+        return None
+
+    return res
+
+    # return len(res) == 1 : res ? None;
 
 def phoibleify(chars):
     def replace_char(c):
@@ -52,9 +119,15 @@ def cleanup_lang(data):
         if not segment_class == "consonant":
             continue
 
-        print("%s: %s, %s" % (phoneme, allophones, segment_class))
-        res["phonemes"][phoneme].update(allophones.strip("\"").split(" "))
+        consonant = normalize_consonant(phoneme)
 
+        if consonant is None or consonant is "":
+            continue
+
+        # print("%s: %s, %s" % (consonant, allophones, segment_class))
+        res["phonemes"][consonant].update(allophones.strip("\"").split(" "))
+
+    # Turn allophones back into a list
     res["phonemes"] = {k: list(v) for k, v in res["phonemes"].items()}
 
     return res
@@ -67,16 +140,21 @@ def pretty_print_language(lang):
 
 
 def unmatched_phonemes(phoneme_set, lang):
-    print(lang["phonemes"].keys())
+    # print(lang["phonemes"].keys())
     return [p for p in phoneme_set if p not in lang["phonemes"].keys()]
 
 def clean_langs(data, lang_list):
     res = {}
-    for lang_code in lang_list:
-        res[lang_code] = cleanup_lang(data[lang_code])
+    for lang in lang_list:
+        lang_code = lang["code"]
+        if len(data[lang_code]) == 0:
+            continue
+        # merge dicts for result
+        res[lang_code] = {**cleanup_lang(data[lang_code]), **lang}
     return res
 
 def __main__():
+    most_spoken_lang_codes = [lang["code"] for lang in most_spoken_langs]
     print("seeking languages:")
     print(most_spoken_lang_codes)
 
@@ -96,6 +174,16 @@ def __main__():
     print("unmatched phonemes for english from [%s]:" % trial_phonemes)
     print(unmatched_phonemes(trial_phonemes, english))
 
-    print(json.dumps(clean_langs(data, most_spoken_lang_codes)))
+    json_res = json.dumps(clean_langs(data, most_spoken_langs))
+
+    # print(json_res)
+
+    # NEXT_STEP: Figure out why the cleanup from normalize_consonant isn't making it through to the
+    # website.
+
+    with open("site/most_spoken.json", "w") as f:
+        f.write(json_res)
+
+    print("json written to file")
 
 __main__()

@@ -1,9 +1,55 @@
-'use strict';
+class LanguagesTable extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
-$(document).ready(function() {
+  phonemesForLang(lang) {
+    if (!lang.phonemes) return "no phonemes";
+    if (!Object.keys(lang.phonemes)) return "no keys";
+    return Object.keys(lang.phonemes).join("");
+  }
+
+  renderLang(lang) {
+    const me = this;
+    return (
+      <tr>
+        <td className="tg-0pky">{lang.name}</td>
+        <td className="tg-0pky">{lang.iso_code}</td>
+        <td className="tg-0pky">TODO</td>
+        <td className="tg-0pky">TODO</td>
+        <td className="tg-0pky">{me.phonemesForLang(lang)}</td>
+        <td className="tg-0pky">TODO</td>
+        <td className="tg-0pky">TODO</td>
+      </tr>
+    );
+  }
+
+  render() {
+    const me = this;
+    return (
+      <table >
+        <tbody>
+          <tr>
+            <th className="tg-0pky">Language Name</th>
+            <th className="tg-0pky">Language Code</th>
+            <th className="tg-0pky">Speakers (MM)</th>
+            <th className="tg-0pky">Rank</th>
+            <th className="tg-0pky">Consonants</th>
+            <th className="tg-0pky">Missing Consonants</th>
+            <th className="tg-0pky">Extra Consonants</th>
+          </tr>
+          {Object.values(langs).map(me.renderLang.bind(me))}
+        </tbody>
+      </table>
+    );
+  }
+}
+
+let langs;
+let work = (function() {
   const languages = {
     "eng": "pbtdkɡmnŋfvθðszʃʒhɹlj"
-  }
+  };
 
   function unique_chars(s) {
     let res = "";
@@ -63,33 +109,9 @@ $(document).ready(function() {
   ReactDOM.render(React.createElement(LanguagesTable), languages_table_container);
 });
 
-class LanguagesTable extends React.Component {
-  constructor(props) {
-    super(props);
-    /* this.state = { liked: false }; */
-  }
-
-  render() {
-    if (this.state.liked) {
-      return 'You liked this.';
-    }
-
-    return (
-      <table >
-        <tbody>
-          <tr>
-            <th class="tg-0pky">Language Name</th>
-            <th class="tg-0pky">Language Code</th>
-            <th class="tg-0pky">Speakers (MM)</th>
-            <th class="tg-0pky">Rank</th>
-            <th class="tg-0pky">Consonants</th>
-            <th class="tg-0pky">Missing Consonants</th>
-            <th class="tg-0pky">Extra Consonants</th>
-          </tr>
-          {languages.map((lang) =>
-          )}
-        </tbody>
-      </table>
-    )
-  }
-}
+console.log("importing langs");
+$.getJSON("most_spoken.json", function(data) {
+  langs = data;
+  console.log(langs["ben"].name);
+  work();
+});
