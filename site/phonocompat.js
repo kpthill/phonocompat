@@ -1,3 +1,11 @@
+function setDifference(a, b) {
+  let difference = new Set(a);
+  for (let elem of b) {
+    difference.delete(elem);
+  }
+  return Array.from(difference);
+}
+
 class LanguagesTable extends React.Component {
   constructor(props) {
     super(props);
@@ -14,14 +22,18 @@ class LanguagesTable extends React.Component {
     return (
       <tr key={lang.iso_code}>
         <td className="tg-0pky">{lang.rank}</td>
-        <td className="tg-0pky">{lang.name}</td>
+        <td className="tg-0pky">
+          <a href="#" onClick={() => this.props.set_phonostring(Object.keys(lang.phonemes).join(""))}>
+            {lang.name}
+          </a>
+        </td>
         <td className="tg-0pky">{lang.iso_code}</td>
         <td className="tg-0pky">{
           (lang.speakers / (1000*1000)).toLocaleString(undefined, {minimumFractionDigits: 1})
         }</td>
         <td className="tg-0pky">{me.phonemesForLang(lang)}</td>
-        <td className="tg-0pky">TODO</td>
-        <td className="tg-0pky">TODO</td>
+        <td className="tg-0pky">{setDifference(this.props.phonostring, Object.keys(lang.phonemes)).join("")}</td>
+        <td className="tg-0pky">{setDifference(Object.keys(lang.phonemes), this.props.phonostring).join("")}</td>
       </tr>
     );
   }
@@ -83,6 +95,8 @@ let work = (function() {
 
     // update input field
     $(".inventory_string").val(phonostring);
+
+    renderTable(phonostring);
   }
 
   function set_phonostring(new_phonostring) {
@@ -108,12 +122,15 @@ let work = (function() {
     set_phonostring($(this).val());
   });
 
-  $("#english").on("click", function() {
-    set_phonostring(languages["eng"]);
-  });
-
   const languages_table_container = document.querySelector("#languages_table_container");
-  ReactDOM.render(React.createElement(LanguagesTable), languages_table_container);
+
+  function renderTable(phonostring) {
+    const languages_table = React.createElement(LanguagesTable, {phonostring: phonostring, set_phonostring:set_phonostring});
+    window.languages_table = languages_table; // For debugging
+    ReactDOM.render(languages_table, languages_table_container);
+  }
+
+  renderTable(phonostring);
 });
 
 console.log("importing langs");
