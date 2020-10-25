@@ -1,4 +1,4 @@
-1) Debug the data issues with arabic, mandarin and probably others
+1) debug the data issues with arabic, mandarin and probably others
 2) move the main table to react
 3) move the whole thing to react with a bunch of subcomponents
 4) add the non-plosive consonants like w, clicks
@@ -6,6 +6,7 @@
 6) clean up css, look into using material design or bootstrap or something like that
 7) color rows of the table based on compatibility
 8) give suggested conlangs
+9) consider adding aspiration as a distinctive feature
 
 maybe:
 - add support for affricates, ejectives, and other multicharacter consonants
